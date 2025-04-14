@@ -155,14 +155,31 @@
     // 存储 a 标签的 title 属性值
     let titles = [];
     let newsId;
+     // 加密使用的密钥（AES 要求密钥长度为 16、24 或 32 字节）
+    const encryptionKey = "1234567890123456";
+    // 加密密钥
+    const encryptedKey = "U2FsdGVkX19n7LHjbF+A4OTju6qpdurUCeF7Zn/Ocdkq5N0bEkL0LDf/lDdT1iQq+64NofY1t/igOtD6OQSqD8lmnhdYW9nQaoPENaGeBsxhe+bcsKjfUXuwz6K9WtdxN1qnYLBXOF9gazL+IGtJ/2LegrU8hN85RRCV3ST4mdE="
+    console.log("加密后的密钥: ", encryptedKey);
 
+     // 解密函数
+     function decrypt(key, ciphertext) {
+        const bytes = CryptoJS.AES.decrypt(ciphertext, key);
+        const originalText = bytes.toString(CryptoJS.enc.Utf8);
+        return originalText;
+      }
+
+      
+    // 解密密钥
+    const decryptedKey = decrypt(encryptionKey, encryptedKey);
+    console.log("解密后的密钥: ", decryptedKey);
+  
     // 发起 GitHub API 请求获取文件列表
     $.ajax({
         url: `https://api.github.com/repos/${owner}/${repo}/contents/${path}`,
         type: 'GET',
         headers: {
             // 如果你有 GitHub token，可以在这里添加以避免请求限制
-            'Authorization': 'Bearer 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'
+            'Authorization': decryptedKey
         },
         success: function (response) {
             // 处理成功响应
