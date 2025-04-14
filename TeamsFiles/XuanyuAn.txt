@@ -1,0 +1,6 @@
+Group=Ph.D Candidates
+name=Xuanyu An
+jobTitle=Ph.D Candidates
+DepartmentAndHonors=[""]
+intr=Mr. Xuanyu An joined Qianqian Wang's team in 2024, He received his master's degree from Imperial College London(帝国理工学院), His research interests focus on microrobotic swarm control and automation.
+img=XuanyuAn.png

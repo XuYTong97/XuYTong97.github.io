@@ -1,0 +1,6 @@
+Group=M.Eng Student
+name=Shengming Luo
+jobTitle=M.Eng Student
+DepartmentAndHonors=[""]
+intr=Mr. Shengming Luo(Research Assistant), a DRL researcher specializing in intelligent systems, joined Qianqian Wang's group in 2024 and is currently pursuing his Master's degree at the Southeast University - Monash University Joint Graduate School (Suzhou).
+img=ShengmingLuo.png

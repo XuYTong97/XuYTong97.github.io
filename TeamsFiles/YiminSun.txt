@@ -1,0 +1,6 @@
+Group=Ph.D Candidates
+name=Yimin Sun
+jobTitle=Ph.D Candidates
+DepartmentAndHonors=[""]
+intr=Mr. Yimin Sun joined Qianqian Wang's team in 2023, He received his master's degree from the School of Mechanical Engineering at Nanjing University of Science and Technology(南京理工大学), His research interests focus on automated magnetic manipulation control algorithms and deep learning.
+img=YiminSun.png

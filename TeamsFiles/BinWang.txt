@@ -1,0 +1,6 @@
+Group=M.Eng Student
+name=Bin Wang
+jobTitle=M.Eng Student
+DepartmentAndHonors=[""]
+intr=Mr. Bin Wang joined Qianqian Wang's team in 2024. He received his Bachelor of Engineering degree in Mechanical Engineering from Southeast University(东南大学) in 2023. His main research interests are magnetron 3D printing and related applications.
+img=BinWang.png

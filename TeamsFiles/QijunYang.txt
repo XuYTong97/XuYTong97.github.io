@@ -1,0 +1,6 @@
+Group=M.Eng Student
+name=Qijun Yang
+jobTitle=M.Eng Student
+DepartmentAndHonors=[""]
+intr=Mr. Qijun Yang joined Qianqian Wang's team in 2023. He received his Bachelor of Fine Arts degree in 2021 from Sichuan Normal University(四川师范大学). His research interests focus on multimodal Human-Computer interaction.
+img=QijunYang.png

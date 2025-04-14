@@ -1,0 +1,6 @@
+Group=M.Eng Student
+name=Wenye Su
+jobTitle=M.Eng Student
+DepartmentAndHonors=[""]
+intr=Mr.WenYe Su will join Qianqian Wang's team in 2026. He received his exemption from Southeast University(东南大学) in 2024.
+img=WenyeSu.png

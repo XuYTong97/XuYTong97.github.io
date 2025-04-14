@@ -1,0 +1,6 @@
+Group=M.Eng Student
+name=Jiansheng Du
+jobTitle=M.Eng Student
+DepartmentAndHonors=[""]
+intr=Mr. JianSheng Du will join Qianqian Wang's team in 2024. He received his Bachelor of Engineering degree in Mechanical Engineering from Southeast University(东南大学) in 2023.His main research interests are ultrasound imaging in microrobotic control.
+img=JianshengDu.png

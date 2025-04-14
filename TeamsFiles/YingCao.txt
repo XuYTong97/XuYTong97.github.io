@@ -1,0 +1,6 @@
+Group=M.Eng Student
+name=Ying Cao
+jobTitle=M.Eng Student
+DepartmentAndHonors=[""]
+intr=Mr. Ying Cao joined Qianqian Wang's team in 2023. He received his Bachelor of Engineering degree from the School of Mechanical Engineering in Hefei University of Technology(合肥工业大学) in 2023. His research interests focus on automated magnetic control of microrobots and construction of magnetic mobile device.
+img=YingCao.png
