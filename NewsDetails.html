@@ -155,15 +155,6 @@
     // 存储 a 标签的 title 属性值
     let titles = [];
     let newsId;
-    // 解密函数
-    function decrypt(key, ciphertext) {
-        const bytes = CryptoJS.AES.decrypt(ciphertext, key);
-        const originalText = bytes.toString(CryptoJS.enc.Utf8);
-        return originalText;
-    }
-    const encryptedKey = "U2FsdGVkX1+1VxZFb5KfnhmxTFD1xvcq5cq8KUljXLzpHwxAa7s3ahz31gPxBMrdGBaapjCD7Zgww/kSBM+4Ng=="
-    const decryptedKey = decrypt("git", encryptedKey);
-    console.log(decryptedKey)
 
     // 发起 GitHub API 请求获取文件列表
     $.ajax({
@@ -171,7 +162,7 @@
         type: 'GET',
         headers: {
             // 如果你有 GitHub token，可以在这里添加以避免请求限制
-            'Authorization': 'Bearer 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'
+            'Authorization': 'Bearer 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'
         },
         success: function (response) {
             // 处理成功响应
