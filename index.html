@@ -1,649 +1,427 @@
-﻿<!DOCTYPE html>
-<html lang="zh-cn">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="format-detection" content="email=no" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="renderer" content="webkit">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-    <title>[求职]徐元通</title>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet"  type="text/css" href="assets/css/typo.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/index.css">
-    
-
-
-    <script>
-        function loading() {
-            document.getElementsByClassName('avatar')[0].style.display = 'block';
-            document.getElementsByClassName('loading')[0].style.display = 'none';
-        }
-    </script>
-</head>
-
-<body>
-
-    <div>
-        <header class="header"></header>
-    <article class="container">
-        <section class="side" id="side">
-<!-- 
-            <label class="switch" style="display: none;" onchange="switchFixed()">
-                <script type="text/javaScript">
-                    function switchFixed() {
-                    var value = document.getElementById('side').style.position === 'fixed' ? 'absolute' : 'fixed';
-                    document.getElementById('side').style.position = value;
-                }
-            </script>
-                <input id="cb" type="checkbox">
-                <span class="slider round"></span>
-            </label>
-            <style>
-                @media (min-width: 414px) {
-                    .switch {
-                        position: relative;
-                        display: inline-block !important;
-                        width: 60px;
-                        height: 34px;
-                    }
-
-                    .switch input {
-                        display: none;
-                    }
-
-                    .slider {
-                        position: absolute;
-                        cursor: pointer;
-                        top: 0;
-                        left: 0;
-                        right: 0;
-                        bottom: 0;
-                        background-color: #ccc;
-                        -webkit-transition: .4s;
-                        transition: .4s;
-                    }
-
-                    .slider:before {
-                        position: absolute;
-                        content: "";
-                        height: 26px;
-                        width: 26px;
-                        left: 4px;
-                        bottom: 4px;
-                        background-color: white;
-                        -webkit-transition: .4s;
-                        transition: .4s;
-                    }
-
-                    input:checked+.slider {
-                        background-color: #1abc9c;
-                    }
-
-                    input:focus+.slider {
-                        box-shadow: 0 0 1px #1abc9c;
-                    }
-
-                    input:checked+.slider:before {
-                        -webkit-transform: translateX(26px);
-                        -ms-transform: translateX(26px);
-                        transform: translateX(26px);
-                    }
-
-                    .slider.round {
-                        border-radius: 34px;
-                    }
-
-                    .slider.round:before {
-                        border-radius: 50%;
-                    }
-                }
-            </style> -->
-            <!-- 左侧固定开关，记得及时删除这段代码 End-->
-
-            <!-- 个人肖像 -->
-            <div class="lunbo">
-                <div id="carouselExample" class="carousel slide">
-                    <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <img src="./assets/images/L1.jpg" class="d-block w-100" alt="旅游">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="./assets/images/L2.jpg" class="d-block w-100" alt="旅游">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="./assets/images/L3.jpg" class="d-block w-100" alt="旅游">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="./assets/images/L4.jpg" class="d-block w-100" alt="旅游">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="./assets/images/L5.jpg" class="d-block w-100" alt="旅游">
-                      </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
-                    </button>
-                  </div>
-            </div>
-            <section class="me" >
-                <section class="portrait">
-                    <!-- <div class="loading">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div> -->
-                    <!-- 头像照片 -->
-                    <img class="avatar" src="assets/images/xyt.png">
-                </section>
-
-                <!-- <h1 class="name" style="margin-top: 34px;"><strong>意向岗位</strong></h1> -->
-                <!-- <h4 class="info-job"><strong>计算机类专任教师</strong> </h4> -->
-
-            </section>
-
-            <!-- 基本信息 -->
-            <section class="profile info-unit">
-                <h2>
-                    <i class="fa fa-user" aria-hidden="true"></i>基本信息</h2>
-                <hr />
-                <ul class="addfont">
-                    
-                        <label>个人信息</label>
-                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;徐元通 / 男 / 26岁</span>
-                    </li>
-                    <li>
-                        <label>政治面貌</label>
-                        <span>中国共产党党员</span>
-                    </li>
-                    <li>
-                        <label>籍贯</label>
-                        <span>四川达州</span>
-                    </li>
-
-                </ul>
-            </section>
-
-            <!-- 联系方式 -->
-            <section class="contact info-unit">
-                <h2>
-                    <i class="fa fa-phone" aria-hidden="true"></i>联系方式</h2>
-                <hr />
-                <ul class="addfont">
-                    <li>
-                        <label><i class="fa fa-qq"></i></label>
-                        <a target="_blank">1035532035</a>
-                    </li>
-                    <li>
-                        <label><i class="fa fa-envelope"></i></label>
-                        <a href="XuYTong@163.com" target="_blank">XuYTong@163.com</a>
-                    </li>
-                    <li>
-                        <label><i class="fa fa-phone"></i></label>
-                        <a href="https://blog.csdn.net/weixin_42294716" target="_blank"> 13281094620</a>
-                    </li>
-                   
-                </ul>
-            </section>
-
-            <!-- 教育经历 -->
-            <section class="edu info-unit">
-                    <h2>
-                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>教育经历</h2>
-                    <hr />
-                    <ul class="addfont">
-                        <li>
-                            <div class="addfont">
-                                <p>本科：成都大学</p>
-                                <p>专业：软件工程</p>
-                            </div>
-                            <time>时间：<mark> 2017.9-2021.7</mark></time>
-                            <p>
-                                GPA：<mark>3.56/5.0</mark>
-                            </p>
-                            <p>专业排名：<mark>前 5%</mark>
-                            </p>
-                        </li>
-	        <li>
-                            <div class="addfont" style="margin-top: 10px;">
-                                <p>硕士：重庆交通大学(在读)</p>
-                                <p>专业：计算机科学与技术(学硕)</p>
-                            </div>
-                            <time>时间：<mark> 2022.9-2025.6</mark></time>
-                            <p>
-                                GPA：<mark>4.0/5.0</mark>
-                            </p>
-                            <p>专业排名：<mark>前 5%</mark>
-                            </p>
-                        </li>
-                    </ul>
-                </section>
-                
-                 <!-- 干部经历 -->
-                 <section class="edu info-unit">
-                    <h2>
-                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>干部经历</h2>
-                    <hr />
-                    <div class="addfont">
-                        1、 班长<br />
-                        2、 党支部组织委员<br />
-                        3、 学术部部长<br />
-                    </div>
-                </section>
-
-                <!-- 个人荣誉 -->
-                <section class="edu info-unit">
-                    <h2>
-                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>个人荣誉</h2>
-                    <hr />
-                    <div class="addfont">
-                        1、 优秀共产党党员<br />
-                        2、 四川省第五届互联网+省赛铜奖<br />
-                        3、 四川省第六届互联网+省赛金奖<br />
-                        4、 四川省计算机设计大赛三等奖<br />
-                        5、 成都大学校友会理事<br />
-                        6、 成都大学优秀毕业生<br />
-                        7、 国家励志奖学金<br />
-                        8、 重庆交通大学互联网+校赛一等奖<br />
-                        9、 重庆交通大学互联网+校赛二等奖<br />
-                        10、研究生电子设计大赛初赛三等奖<br />
-                        11、重庆市科慧杯三等奖<br />
-                    </div>
-                </section>
-
-            <!-- 个人技能 -->
-            <section class="skill info-unit">
-                <h2>
-                    <i class="fa fa-code" aria-hidden="true"></i>技能点</h2>
-                <hr/>
-                <ul class="addfont">
-                    <li>
-                        <label>Java</label>
-                        <progress value="80" max="100"></progress>
-                    </li>
-                    <li>
-                        <label>JavaScript</label>
-                        <progress value="50" max="100"></progress>
-                    </li>
-                    <li>
-                        <label>Python</label>
-                        <progress value="80" max="100"></progress>
-                    </li>
-                    <li>
-                        <label>C/C++</label>
-                        <progress value="70" max="100"></progress>
-                    </li>
-                    <li>
-                        <label>MySQL</label>
-                        <progress value="60" max="100"></progress>
-                    </li>
-                    <li>
-                        <label>Vue全家桶</label>
-                        <progress value="80" max="100"></progress>
-                    </li>
-                    <li>
-                        <label>Git</label>
-                        <progress value="80" max="100"></progress>
-                    </li>
-                    <li>
-                        <label>墨刀/Axure</label>
-                        <progress value="60" max="100"></progress>
-                    </li>
-                </ul>
-            </section>
-
-             <!-- 爱好 -->
-             <section class="edu info-unit">
-                <h2>
-                    <i class="fa fa-heart" aria-hidden="true"></i>爱好</h2>
-                <hr />
-                <div class="addfont">
-                    1、 运动：篮球、台球、滑板等<br />
-                    2、 旅游<br />
-                </div>
-               
-            </section>
-
-
-        </section>
-
-        <section class="main">
-
-            <!-- 专业能力 -->
-            <section style="margin-top: 3px"  class="work info-unit">
-                <h2>
-                    <i class="fa fa-pencil" aria-hidden="true"></i>专业能力</h2>
-                <hr />
-                <div class="addfont">
-                    <p> Java: 熟悉Spring、SpringMVC、SpringBoot,MyBatis等JavaWeb后端开发技术。
-                    </p>
-                    <p> 前端: 熟悉Vue.js、Axios、Vuex、Vue-Router、ElementUI以及jQuery等Web前端开发技术。
-                    </p>
-                    <p> Python: 熟悉Python编程，Python Web开发，能使用Pytorch搭建分类、检测、分割等图像算法。
-                    </p>
-                    <p> C/C++: 熟悉C语言、了解C++，能使用C/C++进行嵌入式软件开发。
-                    </p>
-                    <p>
-                        其他：熟悉常用数据结构、排序算法，掌握Git常用版本控制命令，会使用墨刀/Axure等进行原型图设计，熟悉ROS基本操作。
-                    </p>
-                </div>
-            </section>
-
-            <!-- 工作经历 -->
-
-            <section class="project info-unit">
-                <h2>
-                    <i class="fa fa-paper-plane" aria-hidden="true"></i>工作经历</h2>
-                <hr />
-                <ul class="addfont">
-                    <li>
-                        <div>
-                            <span>【外聘教师】：重庆建筑工程职业学院</span>
-                            <time>2024.09-至今</time>
-                        </div>
-                        <ul class="info-content">
-                            <li><i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                                [工作岗位]：专任教师
-                            </li>
-                            <li><i class="fa fa-users" aria-hidden="true"></i>
-                                [教学课程]：软件工程、Web前端框架
-                            </li>
-                            <li>
-                                <i class="fa fa-bars" aria-hidden="true"></i>
-                                [贡献]<br />
-                                <p>
-                                    &emsp;&emsp;1、软件工程课程教学<br />
-                                    &emsp;&emsp;2、Web前端框架课程教学<br />
-                                </p>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <div>
-                            <span>【实习】：西部科学城智能网联汽车创新中心（重庆）有限公司（李克强院士工作站）</span>
-                            <time>2023.11-2024.08</time>
-                        </div>
-                        <ul class="info-content">
-                            <li><i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                                [工作岗位]：自动驾驶仿真测试工程师
-                            </li>
-                            <li><i class="fa fa-users" aria-hidden="true"></i>
-                                [参与项目]：仿真软件开发、智能实验室改造
-                            </li>
-                            <li>
-                                <i class="fa fa-bars" aria-hidden="true"></i>
-                                [贡献]<br />
-                                <p>
-                                    &emsp;&emsp;1、使用Simulink、ROS对Can通信数据进行处理<br />
-                                    &emsp;&emsp;2、利用串口通信，开发Pyqt界面读取福禄克系统数据<br />
-                                    &emsp;&emsp;3、利用EMQTT,ESP32等，采用混合编程完成智能实验室改造<br />
-                                </p>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <div>
-                            <span>【实习】：大榕树（成都）科技有限公司</span>
-                            <time>2021.05-2021.07</time>
-                        </div>
-                        <ul class="info-content">
-                            <li><i class="fa fa-users" aria-hidden="true"></i>
-                                [工作岗位]：Java初级工程师
-                            </li>
-                            <li><i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                                [参与项目]：WMS仓库管理系统、门户网站、新闻发布管理系统
-                            </li>
-                            <li>
-                                <i class="fa fa-bars" aria-hidden="true"></i>
-                                [贡献]<br />
-                                <p>
-                                    &emsp;&emsp;1、根据WMS仓库管理系统数据库表格生成相应格式的Service、DAO层代码，以及实现动态权限管理<br />
-                                    &emsp;&emsp;2、开发门户网站与新闻发布系统<br />
-                                </p>
-                            </li>
-                        </ul>
-                    </li>
-
-
-                </ul>
-            </section>
-
-            <!-- 项目经验 -->
-            <section class="project info-unit" >
-                <h2>
-                    <i class="fa fa-keyboard-o" aria-hidden="true"></i>项目经验</h2>
-                <hr />
-                <ul class="addfont">
-                    <li>
-                        <div>
-                            <span>[项目1] <a href="#" target="_blank">
-                                    AI-Farmer智慧农业温湿一体化成套装备与控制</a></span>
-                            <span class="link">
-                                <a href="#" target="_blank">竞赛</a>
-                            </span>
-                            <time>2018.12-2019.6</time>
-                        </div>
-                        <ul class="info-content">
-                            <li>技术栈：SpringBoot + Spring MVC + MyBatis + MySQL + Redis + Vue+ Pytorch</li>
-                            <li>
-                                <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                                [模块]算法构建、媒资管理、可视化展示等
-                            </li>
-                            <li>
-                                <i class="fa fa-users" aria-hidden="true"></i>
-                                [职责]系统开发
-                            </li>
-                            <li>
-                                <i class="fa fa-bars" aria-hidden="true"></i>
-                                [主要贡献]<br />
-                                <p>
-                                    &emsp;&emsp;1、使用深度学习算法对不同植物病害进行检测与危害评估
-                                    <br>&emsp;&emsp;2、使用断点续传等对文件、视频进行处理
-                                    <br>&emsp;&emsp;3、使用Vue全家桶进行前端开发
-                                </p>
-                            </li>
-                        </ul>
-                    </li>	
-
-                    <li>
-                        <div>
-                            <span>[项目2]<a href="#" target="_blank">高校新生大数据挖掘系统</a></span>
-                            <span class="link">
-                                <a href="#" target="_blank">校级</a>
-                            </span>
-                            <time>2019.9-2020.6</time>
-                        </div>
-                        <ul class="info-content">
-                            <li>技术栈：Spring + Spring MVC + MyBatis + MySQL + Vue全家桶</li>
-                            <li>
-                                <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                                [模块]可视化展示、数据处理模块、用户管理
-                                <br />
-                                <i class="fa fa-users" aria-hidden="true"></i>
-                                [职责]系统开发
-                                <br />
-                                <i class="fa fa-bars" aria-hidden="true"></i>
-                                [主要贡献]<br />
-                                <p>
-                                    &emsp;&emsp;1、利用Echarts等可视化库开发可视化界面<br />
-                                    &emsp;&emsp;2、利用Spring Security与JWT实现权限管控以及登录认证<br />
-                                    &emsp;&emsp;3、使用多线程进行数据清洗<br />
-                                    <!-- &emsp;&emsp;4、利用Git对前端项目版本控制 -->
-                                </p>
-
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <div>
-                            <span>[项目3] <a href="#" target="_blank">
-                                    智能实验室改造</a></span>
-                            <span class="link">
-                                <a href="#" target="_blank">实习</a>
-                            </span>
-                            <time>2023.11-2024.1</time>
-                        </div>
-                        <ul class="info-content">
-                            <li>技术栈：EMQTT + Javascript + CSS + HTML + Python+ C</li>
-                            <li>
-                                <i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-                                [模块]可视化展示、灯光与电脑控制、走廊与实验室检测等
-                            </li>
-                            <li>
-                                <i class="fa fa-users" aria-hidden="true"></i>
-                                [职责]系统开发
-                            </li>
-                            <li>
-                                <i class="fa fa-bars" aria-hidden="true"></i>
-                                [主要贡献]<br />
-                                <p>
-                                    &emsp;&emsp;1、使用多线程对走廊和实验室进行人员检测
-                                    <br>&emsp;&emsp;2、采用EMQTT与ESP32等，实现各设备的控制与管理
-                                    <br>&emsp;&emsp;3、使用Javascript、CSS等完成可视化开发
-                                </p>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </section>
-
-
-             <!-- 论文与专利 -->
-             <section style="margin-top: 15px !important" class="project info-unit">
-                <h2>
-                    <i class="fa fa-tasks" aria-hidden="true"></i>其他参与项目</h2>
-                <hr />
-                <ul class="addfont">
-                    <li>
-                        <div>
-                            <span>[项目1] 桥梁混凝土表观病害图像识别关键技术研究与系统开发</span>
-                            <time>重庆市交通工程质量检测有限公司</time>
-                        </div>
-                    </li>	
-                    <li>
-                        <div>
-                            <span>[项目2] 户外多功能保温箱关键技术研究</span>
-                            <time>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;重庆市美泰塑胶有限责任公司</time>
-                        </div>
-                    </li>	
-                    <li>
-                        <div>
-                            <span>[项目3] 重庆市普通公路智能巡检数据采集机制与上传标准</span>
-                            <time>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;重庆市公路事务中心</time>
-                        </div>
-                    </li>
-                    
-                </ul>
-              <!-- 论文与专利 -->
-              <section class="project info-unit">
-                <h2>
-                    <i class="fa fa-tasks" aria-hidden="true"></i>论文与专利</h2>
-                <hr />
-                <ul class="addfont">
-                    <li>
-                        <div>
-                            <span>[论文1] 基于Sobel算子桥接的双编码器路面裂缝检测网络</span>
-                            <time>已发表(中文核心)</time>
-                        </div>
-                    </li>	
-                    <li>
-                        <div>
-                            <span>[论文2] A Detail Aware U-Net with Shuffle Excitation for Retinal Vessel Segmentation</span>
-                            <time>已发表(EI会议)</time>
-                        </div>
-                    </li>	
-                    <li>
-                        <div>
-                            <span>[论文3]  A Pavement Crack Segmentation Method integrated Boundary Enhancement and Warning Network  with Wavelet Downsampling Attention</span>
-                            <time>SCI一区(在投)</time>
-                        </div>
-                    </li>	
-                    <li>
-                        <div>
-                            <span>[专利*] 发明专利已受理公开7项</span>
-                        </div>
-                    </li>	
-
-
-
-
-
-
-
-
-                    
-                    <!-- <li>
-                        <h3>
-                            <span>[专利2]一种基于深度学习的路面病害识别方法</span>
-                            <time>已受理公开</time>
-                        </h3>
-                    </li>	
-                    <li>
-                        <h3>
-                            <span>[专利3]一种基于胶囊网络改进的轻量级肺部图像分类方法</span>
-                            <time>已受理公开</time>
-                        </h3>
-                    </li>	
-                    <li>
-                        <h3>
-                            <span>[专利4]一种基于嵌套结构的小样本眼底血管图像分割方法</span>
-                            <time>已受理公开</time>
-                        </h3>
-                    </li>		 -->
-                    
-                <!-- </ul>
-            </section> -->
-            
-
-
-            <!-- 更多信息：https://xuytong97.github.io/ -->
-        </section>
-    </article>
-
-   
-
-    <footer class="footer">
-        <p> <b>感谢您花时间阅读我的简历，期待能有机会和您共事。</b> </p>
-        <!-- <div>
-            <img src="./assets/images/code.png" id="code" alt="">
-        </div> -->
-    </footer>
-    </div>
-
-    <!-- 侧栏 -->
-    <!-- <aside>
-        <ul
-                <a href="https://github.com/nicetong" target="_blank">Github</a>
-            </li>
-            <li>
-                <a href="https://blog.csdn.net/weixin_42294716" target="_blank">Blog</a>
-            </li>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Wanglab</title>
+    <link href="./fonts/Inner/index.css" rel="stylesheet" />
+    <link rel="icon" href="img/SEU-Emblem.png" />
+    <link rel="stylesheet" href="css/mudi.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/format.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/swiper.min.css">
+  </head>
+  <body>
+    <header class="home_header">
+      <div class="logo">
+        <a href="index.html"><img src="img/full-logo-white.png" alt="" /></a>
+      </div>
+      <h1>We are creating the future here</h1>
+      <ul class="actions_buttons">
+        <li>
+          <a href="https://www.google.com" target="_blank"
+            ><img src="img/search.png" alt=""
+          /></a>
+        </li>
+        <li>
+          <a href="Team.html"><img src="img/team.png" alt="" /></a>
+        </li>
+        <li mdui-drawer="{target: '#left-drawer'}">
+          <img src="img/menu-button.png" alt="" />
+        </li>
+      </ul>
+    </header>
+    <div class="home">
+      <div class="home_left">
+        <ul>
+          <li><a href="Team.html">Team</a></li>
+          <li><a href="News.html">News</a></li>
+          <li><a href="Research.html">Research</a></li>
+          <li><a href="Publications.html">Publications</a></li>
+          <li><a href="Beauty.html">Gallery</a></li>
         </ul>
-    </aside> -->
+      </div>
+      <div class="swiper_banner">
+        <div class="swiper-container">
+          <div class="swiper-wrapper">
 
-    <script src="./assets/js/index.js" type="text/javascript"></script>
+            <div class="swiper-slide">
+              <a href="#"
+                ><img
+                  src="img/news.101.jpg"
+                  alt=""
+                  style="transform: translateX(10px)"
+              /></a>
+            </div>
 
-</body>
+            <div class="swiper-slide">
+              <a href="#"> <img src="./img/news-222.png" alt="" /></a>
+            </div>
 
+            <div class="swiper-slide">
+              <a href="#"
+                ><img
+                  src="img/0201.jpg"
+                  alt=""
+                  style="transform: translateX(10px)"
+              /></a>
+            </div>
+            <div class="swiper-slide">
+              <a href="#"> <img src="./img/news-0722.png" alt="" /></a>
+            </div>
+            <div class="swiper-slide">
+              <a href="#"
+                ><img
+                  src="img/news1.jpg"
+                  alt=""
+                  style="transform: translateX(10px)"
+              /></a>
+            </div>
+            <div class="swiper-slide">
+              <a href="#"><img src="img/2502.jpg" alt="" /></a>
+            </div>
+            <div class="swiper-slide">
+              <a href="#">
+                <img
+                  src="img/12133.jpg"
+                  alt=""
+                  style="transform: translateX(10px)"
+              /></a>
+            </div>
+            <div class="swiper-slide">
+              <a href="#"><img src="img/news4.jpg" alt="" /></a>
+            </div>
+
+
+          </div>
+
+          <!-- Add Arrows -->
+          <div class="swiper-button-next hide"></div>
+          <div class="swiper-button-prev hide"></div>
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+    <!--    </div>-->
+    <div class="intro">
+      <div class="intro_left">
+        <div class="title"><a href="Research.html">About us</a></div>
+        <div class="text-default">
+          <p>
+            The <span>Intelligent Small-Scale Robotics Lab </span>(ISSR Lab) is
+            affiliated with School of Mechanical Engineering, Southeast
+            University (SEU), Nanjing, China. Founded by Dr. Qianqian Wang, the
+            lab is dedicated to the interdisciplinary robotics research at small
+            scales, ranging from fundamental science and physics to technologies
+            and solutions for a series of applications. The primary research
+            theme of ISSR Lab centered upon the development of intelligent
+            small-scale robotic systems, including actuation and control
+            strategies, autonomous systems, medical imaging-guided delivery
+            systems, and in <i>vitro/ex vivo/in vivo</i> trials. Our team aims
+            to investigate novel robotics solutions with a highly interest in
+            both academic research and down-to-earth solution development, and
+            we are always welcome worldwide collaborators to join our
+            collaboration network.
+          </p>
+          <p>
+            <span>Research Keywords: </span>Small-scale robotics,
+            micro/nanorobotics, magnetic control, micro/nanomanipulation,
+            microrobotic swarm, collective behaviors, active targeted delivery,
+            autonomous system, medical imaging.
+          </p>
+        </div>
+      </div>
+      <div class="intro_right">
+        <div class="title"><a href="News.html">News</a></div>
+        <div class="text-default">
+
+          <span>
+            [2025. 01]  Our paper entitled
+            <span class="journal_name">Integrated Actuation and Sensing: Toward Intelligent Soft Robots</span> has been highlighted as Annual Hot Paper of <span class="strong">CBS</span>！Congrates to Shuai and Yuanhang.
+          </span>
+          <span class="news-link">
+            <a href="https://mp.weixin.qq.com/s/moYdQ7fCZfNS85N99DoycQ" target="_blank">[Link]</a>
+          </span>
+
+
+          <span>
+            <br /><br /> [2025. 01]  Our paper
+            <span class="journal_name">Untethered Micro/Nanorobots for Remote Sensing: Toward Intelligent Platform</span>, received over 10000+ foucs/accesses on <span class="strong">Nano-Micro Letters</span>！Top 10 among all NML 2024 papers.
+          </span>
+          <span class="news-link">
+            <a href="https://link.springer.com/article/10.1007/s40820-023-01261-9" target="_blank">[Link]</a>
+          </span>
+
+
+          <span>
+            <br /><br /> [2024. 12]   Qijun Yang, a 2023 master's student, received an
+            <span class="strong">HONORABLE MENTION</span> in the <span class="journal_name">Design Intelligence Award (DIA)</span>.
+           
+
+          <span>
+            <br /><br />[2024. 11]  Dr. Wang has been elected as
+            <span class="journal_name">Associate Editor</span> of  <span class="journal_name">IEEE Transactions on Automation Science and Engineering (T-ASE)</span>.
+           
+
+          <span>
+            <br /><br />[2024. 07]  Our collabration work with Prof. Gaojun Teng (academician, CAS) and Prof. Yunfeng Rui (SEU Zhongda hospital) has been accpeted by 
+             <span class="journal_name">Nano-Micro Letters</span>(IF=31.6)!
+             <span class="news-link"><a href="https://link.springer.com/article/10.1007/s40820-024-01464-8"
+              target="_blank">[NML]</a></span>
+<span class="news-link"><a href="https://me.seu.edu.cn/2024/0723/c54507a498769/pagem.htm"
+              target="_blank">[SEUME]</a></span>
+<span class="news-link"><a href="https://www.peopleapp.com/rmharticle/30045995899"
+              target="_blank">[人民日报]</a></span>
+
+          <span>
+            <br /><br />[2024. 02]Our collabration work with CUHK, entitled 
+            <span class="strong">Tracking and Navigation of a Microswarm Under LSCI for Targeted Delivery</span>
+             is published on <span class="journal_name">Science Robotics</span> and selected into Special Issue: Magnetic robots for medical application!
+          </span>
+          <span class="news-link">
+            <a href="https://www.science.org/doi/10.1126/scirobotics.adh1978" target="_blank">[Link]</a>
+          </span>
+          
+
+
+          <span>
+            <br /><br />[2024. 02]Our paper entitled 
+            <span class="strong">Model-Free Control of Magnetic Microrobotic Swarm for On-Demand Pattern Spreading</span> 
+            has been published in
+            <span class="journal_name">IEEE Robotics and Automation Letters</span>, Congrats to Xuanyu and co-authors!
+          </span>
+          <span class="news-link">
+            <a href="https://ieeexplore.ieee.org/document/10436337" target="_blank">[Link]</a>
+            </span>
+          
+          <span class="news-text">
+            <br /><br />[2024. 01]Dr. Wang Joined The 
+            <span class="journal_name">lnternational Journal of Extreme Manufacturing</span>
+             as Youth Editor入选《极端制造》青年编委。
+          </span>
+          <span class="news-link">
+            <a href="http://cn.ijemnet.com/" target="_blank">[极端制造]</a>
+          </span>
+
+          <span class="news-link"
+            ><a
+              href="http://www.ijemnet.com/"
+              target="_blank"
+              >[Extreme Manufacturing]</a
+            ></span
+          >
+          <span class="news-text">
+            <br /><br />[2023. 12]王老师在东南大学2023年第二期新教师入职培训典礼做题为“以青春之名赴时代之约”的发言。
+          </span>
+          <span class="news-link">
+            <a href="https://mp.weixin.qq.com/s/-R1iJiCGdLqEcNVBrxD0QA" target="_blank">[东南教师]</a>
+          </span>
+
+          <span class="news-link"
+            ><a
+              href="https://rsc.seu.edu.cn/2023/1230/c20149a477635/page.htm"
+              target="_blank"
+              >[东南大学人事处]</a
+            ></span
+          >
+          <span class="news-text"
+            ><br /><br />[2023. 12] Professor Wang Qianqian was selected as a
+            Young Editorial Board Member of the 
+            <span class="journal_name">Journal of Mechanical Engineering</span> !
+          </span>
+          <span class="news-link"
+            ><a
+              href="https://mp.weixin.qq.com/s/WJWPgRgJ_ueYFMUTQPPhEw"
+              target="_blank"
+              >[机械工程学报]</a
+            ></span
+          >
+          <span class="news-text"
+            ><br /><br />[2023. 12] Our book entitled
+            <span class="strong">Collective Behavior of Magnetic Micro/Nanorobots: Control,
+              Imaging, and Applications</span> is online!
+          </span>
+          
+                   <span class="news-link"
+                      ><a
+                       href="https://www.taylorfrancis.com/books/mono/10.1201/9781032665788/collective-behavior-magnetic-micro-nanorobots-qianqian-wang-jiangfan-yu"
+                       target="_blank"
+                        >[Link]</a
+                     ></span
+                    >
+
+                    <span class="news-text"
+            ><br /><br />[2023. 12] 恭喜24届机械工程专业本科生张皓宇入选
+            <span class="strong">“至善优选”</span>！他将于 24 年秋季加入课题组，攻读博士学位。
+            <span class="lo"><span class="news-link"
+                      ><a
+                        href="https://me.seu.edu.cn/2023/1121/c1382a472842/page.htm"
+                        target="_blank"
+                        >[机械工程学院]</a
+                      ></span
+                    >
+          <span class="news-text"
+            ><br /><br />[2023. 11] Our paper entitled
+            <span class="strong">Untethered Micro/Nanorobots for Remote Sensing: Towards Intelligent Platform</span>
+               has been published in 
+               <span class="journal_name">Nano-Micro Letters</span>
+               .
+            </span>
+                    <span class="news-link"
+                      ><a
+                        href="https://link.springer.com/article/10.1007/s40820-023-01261-9?utm_source=rct_congratemailt&utm_medium=email&utm_campaign=oa_20231130&utm_content=10.1007/s40820-023-01261-9"
+                        target="_blank"
+                        >[Link]</a
+                      ></span
+                    >
+          <span class="news-text"
+            ><br /><br />[2023. 11] Dr. Wang won the "Open Science Excellent
+            Author Program" due to the high impact of our 
+            <span class="journal_name">Advanced Intelligent Systems</span>
+             article
+            <span class="news-link"
+              ><a
+                href="https://onlinelibrary.wiley.com/doi/10.1002/aisy.202300108"
+                target="_blank"
+                >[Link]</a
+              ></span
+            >
+          </span>
+
+          <span class="news-text"
+            >, which received more than 6,000 downloads in 3 months from
+            worldwide researchers.<br /><br />
+            [2023. 09]
+            王老师于2023年教师节庆祝大会作为青年教师代表发言，分享了对教育和教师使命的思考和感悟。</span
+          >
+          <span class="news-link"
+            ><a
+              href="https://news.seu.edu.cn/2023/0908/c5486a463987/page.htm"
+              target="_blank"
+              >[东南大学新闻网]</a
+            ></span
+          >
+          <span class="news-text"
+            ><br /><br />[2023. 09] Our Springer book entitled
+            <span class="strong">Magnetic Micro and Nanorobot Swarms: From Fundamentals to
+              Applications</span> is online! This book is focused on the attractive emerging field of
+            micro-/nanorobot swarms (microswarms). It introduces fundamental
+            understandings of various microswarms and demonstrates applications
+            of micro-/nanorobot swarms in different fields.
+          </span>
+          <span class="news-link"
+            ><a
+              href="https://link.springer.com/book/9789819930357"
+              target="_blank"
+              >[Link]</a
+            ></span
+          >
+          <span class="news-text"
+            ><br /><br />[2023. 08] Dr. Wang Won the <span class="journal_name">MINE</span> Outstanding Young
+            Scientist Award（“MINE 2023优秀青年科学家奖”）.
+          </span>
+          <span class="news-link"
+            ><a
+              href="https://mp.weixin.qq.com/s/Lc2xN5xDvLRi8hzPNjKGPQ"
+              target="_blank"
+              >[MINE编辑部]</a
+            ></span
+          >
+          <span class="news-text"
+            ><br /><br />[2023. 03] Our <span class="journal_name">Science Advances</span>
+             paper <span class="strong">"Ultrasound Doppler-guided real-time navigation of a magnetic microswarm for
+              active endovascular delivery"</span> has been highlighted as "Hot Paper"
+            (Top 0.1%)!</span
+          >
+          <span class="news-link"
+            ><a
+              href="https://www.science.org/doi/full/10.1126/sciadv.abe5914"
+              target="_blank"
+              >[Link]</a
+            ></span
+          >
+          <span class="news-text"
+            ><br /><br />[2022. 11] Dr. Wang won the 1st Xiaomi Young Talents
+            Program（首届“小米青年学者”）.</span
+          >
+          <span class="news-link"
+            ><a
+              href="https://mp.weixin.qq.com/s/ffFc8hxB74ggCxY_F0ms3w"
+              target="_blank"
+              >[小米公益基金会]</a
+            ></span
+          >
+          <span class="news-link"
+            ><a
+              href="https://mp.weixin.qq.com/s/saWBJu5uC1peF6I-or7-_g"
+              target="_blank"
+              >[东南大学教育基金会]</a
+            ></span
+          >
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="footer_left">
+        <div class="logo">
+          <a href="#"> <img src="./img/xiaohui.png" alt="" /></a>
+        </div>
+        <ul>
+          <li><a href="Team.html">Team</a></li>
+          <li><a href="News.html">News</a></li>
+          <li><a href="Research.html">Research</a></li>
+          <li><a href="Publications.html">Publications</a></li>
+          <li><a href="Beauty.html">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="footer_right">
+        <div class="double_logo">
+          <a target="_blank" href="https://www.seu.edu.cn/"
+            ><img src="./img/SEU-Emblem.png" alt=""
+          /></a>
+          <a target="_blank" href="https://me.seu.edu.cn/"
+            ><img src="./img/SEU-ME-Emblem.png" alt=""
+          /></a>
+        </div>
+        <p>
+          Intelligent Small-<br />Scale Robotics Lab,<br />Southeast University
+        </p>
+      </div>
+    </footer>
+    <div
+      class="mdui-drawer mdui-drawer-right mdui-drawer-close"
+      id="left-drawer"
+    >
+      <div class="draw_header">
+        <div class="logo">
+          <a href="index.html"> <img src="./img/foot-minilogo.png" alt="" /></a>
+        </div>
+        <ul>
+          <li>
+            <a href="#"><img src="./img/搜索黑 1.png" alt="" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="./img/个人黑%201.png" alt="" /></a>
+          </li>
+          <li mdui-drawer="{target: '#left-drawer'}">
+            <span> <img src="./img/取消黑%201.png" alt="" /></span>
+          </li>
+        </ul>
+      </div>
+      <ul class="nav_drop">
+        <li><a href="Team.html">Team</a></li>
+        <li><a href="News.html">News</a></li>
+        <li><a href="Research.html">Research</a></li>
+        <li><a href="Publications.html">Publications</a></li>
+        <li><a href="Beauty.html">Gallery</a></li>
+      </ul>
+    </div>
+  </body>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/mudi.js"></script>
+  <script src="js/swiper-bundle.js"></script>
+  <script src="js/index.js"></script>
 </html>

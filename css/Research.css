@@ -1,0 +1,332 @@
+@charset "UTF-8";
+body {
+  padding-top: px2Rem(70px);
+}
+
+/*媒体查询,不同屏幕下的根元素字体大小设置，利于rem*/
+@media screen and (max-width: 8360px) {
+  html {
+    font-size: 83.6px !important;
+  }
+}
+@media screen and (max-width: 8160px) {
+  html {
+    font-size: 81.6px !important;
+  }
+}
+@media screen and (max-width: 7960px) {
+  html {
+    font-size: 79.6px !important;
+  }
+}
+@media screen and (max-width: 7760px) {
+  html {
+    font-size: 77.6px !important;
+  }
+}
+@media screen and (max-width: 7560px) {
+  html {
+    font-size: 75.6px !important;
+  }
+}
+@media screen and (max-width: 7360px) {
+  html {
+    font-size: 73.6px !important;
+  }
+}
+@media screen and (max-width: 7160px) {
+  html {
+    font-size: 71.6px !important;
+  }
+}
+@media screen and (max-width: 6960px) {
+  html {
+    font-size: 69.6px !important;
+  }
+}
+@media screen and (max-width: 6760px) {
+  html {
+    font-size: 67.6px !important;
+  }
+}
+@media screen and (max-width: 6560px) {
+  html {
+    font-size: 65.6px !important;
+  }
+}
+@media screen and (max-width: 6360px) {
+  html {
+    font-size: 63.6px !important;
+  }
+}
+@media screen and (max-width: 6160px) {
+  html {
+    font-size: 61.6px !important;
+  }
+}
+@media screen and (max-width: 5960px) {
+  html {
+    font-size: 59.6px !important;
+  }
+}
+@media screen and (max-width: 5760px) {
+  html {
+    font-size: 57.6px !important;
+  }
+}
+@media screen and (max-width: 5560px) {
+  html {
+    font-size: 55.6px !important;
+  }
+}
+@media screen and (max-width: 5360px) {
+  html {
+    font-size: 53.6px !important;
+  }
+}
+@media screen and (max-width: 5160px) {
+  html {
+    font-size: 51.6px !important;
+  }
+}
+@media screen and (max-width: 4960px) {
+  html {
+    font-size: 49.6px !important;
+  }
+}
+@media screen and (max-width: 4760px) {
+  html {
+    font-size: 47.6px !important;
+  }
+}
+@media screen and (max-width: 4560px) {
+  html {
+    font-size: 45.6px !important;
+  }
+}
+@media screen and (max-width: 4360px) {
+  html {
+    font-size: 43.6px !important;
+  }
+}
+@media screen and (max-width: 4160px) {
+  html {
+    font-size: 41.6px !important;
+  }
+}
+@media screen and (max-width: 3960px) {
+  html {
+    font-size: 39.6px !important;
+  }
+}
+@media screen and (max-width: 3760px) {
+  html {
+    font-size: 37.6px !important;
+  }
+}
+@media screen and (max-width: 3560px) {
+  html {
+    font-size: 35.6px !important;
+  }
+}
+@media screen and (max-width: 3360px) {
+  html {
+    font-size: 33.6px !important;
+  }
+}
+@media screen and (max-width: 3160px) {
+  html {
+    font-size: 31.6px !important;
+  }
+}
+@media screen and (max-width: 2960px) {
+  html {
+    font-size: 29.6px !important;
+  }
+}
+@media screen and (max-width: 2760px) {
+  html {
+    font-size: 27.6px !important;
+  }
+}
+@media screen and (max-width: 2560px) {
+  html {
+    font-size: 25.6px !important;
+  }
+}
+@media screen and (max-width: 2360px) {
+  html {
+    font-size: 23.6px !important;
+  }
+}
+@media screen and (max-width: 2160px) {
+  html {
+    font-size: 21.6px !important;
+  }
+}
+@media screen and (max-width: 1920px) {
+  html {
+    font-size: 19.2px !important;
+  }
+}
+@media screen and (max-width: 1728px) {
+  html {
+    font-size: 17.28px !important;
+  }
+}
+@media screen and (max-width: 1520px) {
+  html {
+    font-size: 15.2px !important;
+  }
+}
+@media screen and (max-width: 1420px) {
+  html {
+    font-size: 14.2px !important;
+  }
+}
+@media screen and (max-width: 1366px) {
+  html {
+    font-size: 13.66px !important;
+  }
+}
+@media screen and (max-width: 1280px) {
+  html {
+    font-size: 12.8px !important;
+  }
+}
+@media screen and (max-width: 1140px) {
+  html {
+    font-size: 11.4px !important;
+  }
+}
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 10.24px !important;
+  }
+}
+@media screen and (max-width: 924px) {
+  html {
+    font-size: 9.24px !important;
+  }
+}
+@media screen and (max-width: 800px) {
+  html {
+    font-size: 8px !important;
+  }
+}
+.research {
+  width: 100%;
+  min-height: 95vh;
+  display: flex;
+  position: relative;
+}
+.research .news_bg {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  padding-top: 4.0509259259rem;
+}
+.research .news_bg img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.research .news_left {
+  position: absolute;
+  top: 8.5069444444rem;
+  left: 2.0833333333rem;
+  width: 11.5740740741rem;
+}
+.research .news_left ul {
+  display: flex;
+  flex-direction: column;
+}
+.research .news_left ul li {
+  margin-bottom: 0.7523148148rem;
+}
+.research .news_left ul li a {
+  color: #000;
+  font-size: 1.1574074074rem;
+  font-weight: 800;
+  transition: 0.3s;
+}
+.research .news_left ul li a:hover {
+  color: #fccf00;
+}
+.research .news_left ul li a:active {
+  color: #587558;
+}
+.research .news_left ul li:last-child {
+  margin-bottom: 0;
+}
+.research .research_center {
+  position: relative;
+  margin: 8.5069444444rem auto 26.0416666667rem;
+  width: 62.5rem;
+  height: 40.5092592593rem;
+  border-radius: 15px;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0rem 1.0416666667rem 5.787037037rem 2.025462963rem;
+}
+.research .research_center .inner_research_center {
+  height: 100%;
+}
+.research .research_center .inner_research_center .research_center_top {
+  box-sizing: border-box;
+  font-size: 1.6203703704rem;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: justify;
+}
+.research .research_center .inner_research_center .research_center_top span {
+  font-weight: 700;
+}
+.research .research_center .inner_research_center ul {
+  margin-top: 1.1574074074rem;
+  display: flex;
+  flex-direction: column;
+}
+.research .research_center .inner_research_center ul li {
+  display: flex;
+  margin-bottom: 0.5787037037rem;
+}
+.research .research_center .inner_research_center ul li .dian {
+  width: 10px;
+  height: 10px;
+  margin: 15px 15px 10px;
+  background-color: #333;
+  border-radius: 50%;
+}
+.research .research_center .inner_research_center ul li > div {
+  flex: 1;
+  text-align: justify;
+  color: #333;
+  font-size: 1.3888888889rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+.research .research_center .inner_research_center ul li > div span {
+  color: #333;
+  font-size: 1.3888888889rem;
+  font-weight: 700;
+}
+.research .research_center .inner_research_center .research_center_bottom {
+  margin-top: 1.1574074074rem;
+}
+.research .research_center .inner_research_center .research_center_bottom h3 {
+  margin-bottom: 0.5787037037rem;
+  font-weight: 700;
+  font-size: 1.8518518519rem;
+}
+.research .research_center .inner_research_center .research_center_bottom p {
+  line-height: 1.2;
+  font-size: 1.8518518519rem;
+  font-weight: 500;
+}
+
+/*# sourceMappingURL=Research.css.map */

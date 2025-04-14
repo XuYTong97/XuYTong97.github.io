@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor.md Display MD File</title>
+    <link rel="stylesheet" href="./editormd/css/editormd.min.css">
+    <script src="./editormd/editormd.min.js"></script>
+    <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js" rel="external nofollow"></script>
+    <link rel="stylesheet" href="editormd/css/editormd.preview.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Wanglab</title>
+    <link href="./fonts/Inner/index.css" rel="stylesheet" />
+    <link rel="icon" href="img/SEU-Emblem.png" />
+    <link rel="stylesheet" href="css/mudi.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/format.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <style>
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .test-editormd-view {
+            width: 100%;
+            display: flex;
+            box-sizing: border-box;
+        }
+
+        .editormd-html-preview,
+        .editormd-preview-container {
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="home_header">
+        <div class="logo">
+            <a href="index.html"><img src="img/full-logo-white.png" alt="" /></a>
+        </div>
+        <h1>We are creating the future here</h1>
+        <ul class="actions_buttons">
+            <li>
+                <a href="https://www.google.com" target="_blank"><img src="img/search.png" alt="" /></a>
+            </li>
+            <li>
+                <a href="Team.html"><img src="img/team.png" alt="" /></a>
+            </li>
+            <li mdui-drawer="{target: '#left-drawer'}">
+                <img src="img/menu-button.png" alt="" />
+            </li>
+        </ul>
+    </header>
+    <div class="home">
+        <div class="home_left">
+            <ul>
+                <li><a href="Team.html">Team</a></li>
+                <li><a href="News.html">News</a></li>
+                <li><a href="Research.html">Research</a></li>
+                <li><a href="Publications.html">Publications</a></li>
+                <li><a href="Beauty.html">Gallery</a></li>
+            </ul>
+        </div>
+        <!--    </div>-->
+        <div class="intro" style="margin-top:20px;">
+            <div class="intro_left">
+                <div id="test-editormd-view">
+                    <textarea style="display:none;" name="test-editormd-markdown-doc"></textarea>
+                </div>
+            </div>
+
+        </div>
+        <footer class="footer">
+            <div class="footer_left">
+                <div class="logo">
+                    <a href="#"> <img src="./img/xiaohui.png" alt="" /></a>
+                </div>
+                <ul>
+                    <li><a href="Team.html">Team</a></li>
+                    <li><a href="News.html">News</a></li>
+                    <li><a href="Research.html">Research</a></li>
+                    <li><a href="Publications.html">Publications</a></li>
+                    <li><a href="Beauty.html">Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer_right">
+                <div class="double_logo">
+                    <a target="_blank" href="https://www.seu.edu.cn/"><img src="./img/SEU-Emblem.png" alt="" /></a>
+                    <a target="_blank" href="https://me.seu.edu.cn/"><img src="./img/SEU-ME-Emblem.png" alt="" /></a>
+                </div>
+                <p>
+                    Intelligent Small-<br />Scale Robotics Lab,<br />Southeast University
+                </p>
+            </div>
+        </footer>
+        <div class="mdui-drawer mdui-drawer-right mdui-drawer-close" id="left-drawer">
+            <div class="draw_header">
+                <div class="logo">
+                    <a href="index.html"> <img src="./img/foot-minilogo.png" alt="" /></a>
+                </div>
+                <ul>
+                    <li>
+                        <a href="#"><img src="./img/搜索黑 1.png" alt="" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="./img/个人黑%201.png" alt="" /></a>
+                    </li>
+                    <li mdui-drawer="{target: '#left-drawer'}">
+                        <span> <img src="./img/取消黑%201.png" alt="" /></span>
+                    </li>
+                </ul>
+            </div>
+            <ul class="nav_drop">
+                <li><a href="Team.html">Team</a></li>
+                <li><a href="News.html">News</a></li>
+                <li><a href="Research.html">Research</a></li>
+                <li><a href="Publications.html">Publications</a></li>
+                <li><a href="Beauty.html">Gallery</a></li>
+            </ul>
+        </div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/mudi.js"></script>
+<script src="js/swiper-bundle.js"></script>
+<script src="js/index.js"></script>
+<script src="./editormd/editormd.js"></script>
+<script src="./editormd/lib/marked.min.js"></script>
+<script src="./editormd/lib/prettify.min.js"></script>
+<script type="text/javascript">
+    const titles = [];
+    let newsId = ""
+    $.get("./News", function (response) {
+        // 创建一个临时的 DOM 元素
+        const tempDiv = $('<div></div>');
+        // 将响应的 HTML 字符串插入到临时元素中
+        tempDiv.html(response);
+        // 查找 id 为 files 的 ul 元素
+        const filesUl = tempDiv.find('#files');
+        if (filesUl.length > 0) {
+            // 查找 ul 下所有 li 标签内的 a 标签
+            const aTags = filesUl.find('li a');
+            // 存储 a 标签的 title 属性值
+            aTags.each(function () {
+                const title = $(this).attr('title');
+                if (title) {
+                    titles.push(title);
+                }
+            });
+            console.log('a 标签的 title 属性值数组:', titles);
+            // 过滤出以.md为后缀的文件名
+            const mdFileNames = titles.filter(fileName => fileName.endsWith('.md'));
+
+            // 对过滤后的数组进行排序
+            const sortedMdFileNames = mdFileNames.sort();
+
+            console.log(sortedMdFileNames);
+
+            // 获取当前URL的查询参数部分
+            const urlParams = new URLSearchParams(window.location.search);
+            // 获取参数id的值
+            const idValue = urlParams.get('id');
+            if (idValue) {
+                console.log('参数id的值为:', idValue);
+                newsId = idValue
+            } else {
+                console.log('URL中未找到参数id');
+                newsId = sortedMdFileNames[0].split(".")[0]
+            }
+            console.log(newsId)
+            $.get("./News/" + newsId + ".md", function (markdown) {
+                console.log(markdown)
+                testEditormdView = editormd.markdownToHTML("test-editormd-view", {
+                    markdown: markdown,//+ "\r\n" + $("#append-test").text(),
+                    tocm: true,    // Using [TOCM]
+                    emoji: true,
+                    taskList: true,
+                    tex: true,  // 默认不解析
+                });
+                const editormdView = document.getElementById('test-editormd-view');
+
+                const firstH1 = editormdView.querySelector('h1');
+                if (firstH1) {
+                    firstH1.style.textAlign = 'center';
+                }
+
+                const firstH3 = editormdView.querySelector('h3');
+                if (firstH3) {
+                    firstH3.style.textAlign = 'center';
+                }
+
+                const paragraphs = editormdView.querySelectorAll('p');
+                paragraphs.forEach((paragraph) => {
+                    if (paragraph !== firstH1 && paragraph !== firstH3) {
+                        paragraph.style.textAlign = 'justify';
+                        paragraph.style.textIndent = '2ch';
+                    }
+                });
+            });
+
+
+        } else {
+            console.log('未找到 id 为 files 的 ul 元素');
+        }
+    }).fail(function (error) {
+        console.error('请求出错:', error);
+    });
+
+
+
+</script>
+
+</body>
+
+</html>
