@@ -1,0 +1,6 @@
+Group=Ph.D Candidates
+name=Haoyu Zhang
+jobTitle=Ph.D Candidates
+DepartmentAndHonors=[""]
+intr=Mr. Haoyu Zhang joined Qianqian Wang's team in 2024. He received his Bachelor of Engineering degree in Mechanical Engineering from Southeast University(东南大学) in 2023. His research interests collective behaviors of micro/nanorobots, design and control of swarm system. He has been selected into the hornored SEU Ph.D. program (至善优选).
+img=HaoyuZhang.png
