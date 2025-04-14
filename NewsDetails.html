@@ -142,6 +142,7 @@
     const titles = [];
     let newsId = ""
     $.get("./News", function (response) {
+        console.log(response)
         // 创建一个临时的 DOM 元素
         const tempDiv = $('<div></div>');
         // 将响应的 HTML 字符串插入到临时元素中
