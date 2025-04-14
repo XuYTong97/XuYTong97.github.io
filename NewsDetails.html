@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: ZhaoShengwei
  * @Date: 2025-04-14 12:22:40
- * @LastEditTime: 2025-04-14 16:38:50
+ * @LastEditTime: 2025-04-14 17:48:53
  * @LastEditors: ZhaoShengwei
  * @Reference: 
 -->
@@ -163,7 +163,7 @@
     }
     const encryptedKey = "U2FsdGVkX1+1VxZFb5KfnhmxTFD1xvcq5cq8KUljXLzpHwxAa7s3ahz31gPxBMrdGBaapjCD7Zgww/kSBM+4Ng=="
     const decryptedKey = decrypt("git", encryptedKey);
-
+    console.log(decryptedKey)
 
     // 发起 GitHub API 请求获取文件列表
     $.ajax({
@@ -171,7 +171,7 @@
         type: 'GET',
         headers: {
             // 如果你有 GitHub token，可以在这里添加以避免请求限制
-            'Authorization': decryptedKey
+            'Authorization': 'Bearer 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'
         },
         success: function (response) {
             // 处理成功响应
