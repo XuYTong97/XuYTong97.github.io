@@ -1,3 +1,11 @@
+<!--
+ * @Description: 
+ * @Author: ZhaoShengwei
+ * @Date: 2025-04-14 12:22:40
+ * @LastEditTime: 2025-04-14 16:38:50
+ * @LastEditors: ZhaoShengwei
+ * @Reference: 
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editor.md Display MD File</title>
     <link rel="stylesheet" href="./editormd/css/editormd.min.css">
+    <script src="./js/crypto-js.min.js"></script>
     <script src="./editormd/editormd.min.js"></script>
     <script src="./js/lib-jquery.min.js" rel="external nofollow"></script>
     <link rel="stylesheet" href="editormd/css/editormd.preview.css" />
@@ -146,6 +155,15 @@
     // 存储 a 标签的 title 属性值
     let titles = [];
     let newsId;
+    // 解密函数
+    function decrypt(key, ciphertext) {
+        const bytes = CryptoJS.AES.decrypt(ciphertext, key);
+        const originalText = bytes.toString(CryptoJS.enc.Utf8);
+        return originalText;
+    }
+    const encryptedKey = "U2FsdGVkX1+1VxZFb5KfnhmxTFD1xvcq5cq8KUljXLzpHwxAa7s3ahz31gPxBMrdGBaapjCD7Zgww/kSBM+4Ng=="
+    const decryptedKey = decrypt("git", encryptedKey);
+
 
     // 发起 GitHub API 请求获取文件列表
     $.ajax({
@@ -153,7 +171,7 @@
         type: 'GET',
         headers: {
             // 如果你有 GitHub token，可以在这里添加以避免请求限制
-            'Authorization': 'Bearer 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'
+            'Authorization': decryptedKey
         },
         success: function (response) {
             // 处理成功响应
