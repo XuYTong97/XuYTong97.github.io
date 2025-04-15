@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: ZhaoShengwei
  * @Date: 2025-04-15 08:12:08
- * @LastEditTime: 2025-04-15 13:20:02
+ * @LastEditTime: 2025-04-15 13:30:16
  * @LastEditors: ZhaoShengwei
  * @Reference: 
 -->
@@ -74,19 +74,8 @@
       
     </div>
     <div class="intro_right">
-      <div class="title"><a href="News.html">News</a></div>
-      <div class="text-default">
-        <!-- 新闻内容 -->
-        <span>
-          [2025. 01] Our paper entitled
-          <span class="journal_name">Integrated Actuation and Sensing: Toward Intelligent Soft Robots</span> has been
-          highlighted as Annual Hot Paper of <span class="strong">CBS</span>！Congrates to Shuai and Yuanhang.
-        </span>
-        <span class="news-link">
-          <a href="https://mp.weixin.qq.com/s/moYdQ7fCZfNS85N99DoycQ" target="_blank">[Link]</a>
-        </span>
-        <!-- 更多新闻内容 -->
-      </div>
+     
+      
     </div>
   </div>
   <footer class="footer">
@@ -265,17 +254,43 @@
     // 清空之前的内容
     contentContainer.innerHTML = '';
     const div = document.createElement('div');
-    div.id = `test-editormd-view-${index}`;
+    div.id = `test-editormd-view`;
     div.innerHTML = `<div class="title"><a href="Research.html">About us</a></div><textarea style="display:none;" name="test-editormd-markdown-doc"></textarea>`;
     contentContainer.appendChild(div);
     // 假设 editormd 已经在页面中正确引入
-    editormd.markdownToHTML(`test-editormd-view-${index}`, {
-      markdown: content,
+    editormd.markdownToHTML(`test-editormd-view`, {
+      markdown: dataUS,
       tocm: true,
       emoji: true,
       taskList: true,
       tex: true
     });
+
+
+
+
+
+    const urlNews = `https://api.github.com/repos/${owner}/${repo}/contents/${path}/NewsList.md`;
+    const contentNews = await fetchFileContent(urlNews, decryptedKey);
+    const dataNews = parseFileContentUS(contentNews);
+    console.log('contents:', dataNews);
+
+    const contentNewsContainer = document.getElementById('intro_right');
+    // 清空之前的内容
+    contentNewsContainer.innerHTML = '';
+    const divNews = document.createElement('div');
+    divNews.id = `test-editormd-view-news`;
+    divNews.innerHTML = ` <div class="title"><a href="News.html">News</a></div><textarea style="display:none;" name="test-editormd-markdown-doc"></textarea>`;
+    contentContainer.appendChild(divNews);
+    // 假设 editormd 已经在页面中正确引入
+    editormd.markdownToHTML(`test-editormd-view-news`, {
+      markdown: dataNews,
+      tocm: true,
+      emoji: true,
+      taskList: true,
+      tex: true
+    });
+    
     
 
     
