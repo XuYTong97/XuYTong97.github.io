@@ -517,5 +517,9 @@ body {
   line-height: 1.25;
   text-align: justify;
 }
-
+.team_center_bottom{
+  text-align: justify;
+  text-indent: 2ch;
+  line-height: 25px;
+}
 /*# sourceMappingURL=Team.css.map */
