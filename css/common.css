@@ -435,4 +435,8 @@ body {
 .editormd-preview-container, .editormd-html-preview{
   background-color: transparent;
 }
+
+.test-editormd-view-news  p{
+  padding: 10px;
+}
 /*# sourceMappingURL=common.css.map */

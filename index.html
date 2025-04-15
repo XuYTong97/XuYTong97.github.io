@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: ZhaoShengwei
  * @Date: 2025-04-15 08:12:08
- * @LastEditTime: 2025-04-15 13:30:16
+ * @LastEditTime: 2025-04-15 13:31:30
  * @LastEditors: ZhaoShengwei
  * @Reference: 
 -->
@@ -73,7 +73,7 @@
       
       
     </div>
-    <div class="intro_right">
+    <div class="intro_right" id="intro_right">
      
       
     </div>
@@ -266,10 +266,6 @@
       tex: true
     });
 
-
-
-
-
     const urlNews = `https://api.github.com/repos/${owner}/${repo}/contents/${path}/NewsList.md`;
     const contentNews = await fetchFileContent(urlNews, decryptedKey);
     const dataNews = parseFileContentUS(contentNews);
@@ -280,7 +276,7 @@
     contentNewsContainer.innerHTML = '';
     const divNews = document.createElement('div');
     divNews.id = `test-editormd-view-news`;
-    divNews.innerHTML = ` <div class="title"><a href="News.html">News</a></div><textarea style="display:none;" name="test-editormd-markdown-doc"></textarea>`;
+    divNews.innerHTML = `<div class="title"><a href="News.html">News</a></div><textarea style="display:none;" name="test-editormd-markdown-doc"></textarea>`;
     contentContainer.appendChild(divNews);
     // 假设 editormd 已经在页面中正确引入
     editormd.markdownToHTML(`test-editormd-view-news`, {
