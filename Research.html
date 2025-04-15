@@ -1,3 +1,11 @@
+<!--
+ * @Description: 
+ * @Author: ZhaoShengwei
+ * @Date: 2025-04-15 08:12:06
+ * @LastEditTime: 2025-04-15 11:54:44
+ * @LastEditors: ZhaoShengwei
+ * @Reference: 
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,11 +15,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Research</title>
   <link href="./fonts/Inner/index.css" rel="stylesheet" />
+  <script src="./js/crypto-js.min.js"></script>
+  <script src="./editormd/editormd.min.js"></script>
+  <script src="./js/lib-jquery.min.js" rel="external nofollow"></script>
+  <link rel="stylesheet" href="editormd/css/editormd.preview.css" />
   <link rel="icon" href="img/SEU-Emblem.png" />
   <link rel="stylesheet" href="css/mudi.css" />
   <link rel="stylesheet" href="css/Research.css" />
   <link rel="stylesheet" href="css/format.css" />
   <link rel="stylesheet" href="css/common.css" />
+  <script src="./js/crypto-js.min.js"></script>
 </head>
 
 <body>
@@ -49,10 +62,8 @@
     </div>
     <div class="research_center">
       <div class="research_center_modal"></div>
-      <div class="inner_research_center">
-        <div id="test-editormd-view">
-          <textarea style="display:none;" name="test-editormd-markdown-doc"></textarea>
-        </div>
+      <div class="inner_research_center" id="content-container">
+        <!-- 内容将在这里动态添加 -->
       </div>
     </div>
   </div>
@@ -107,6 +118,11 @@
 </body>
 <script src="js/jquery.min.js"></script>
 <script src="js/mudi.js"></script>
+<script src="js/swiper-bundle.js"></script>
+<script src="js/index.js"></script>
+<script src="./editormd/editormd.js"></script>
+<script src="./editormd/lib/marked.min.js"></script>
+<script src="./editormd/lib/prettify.min.js"></script>
 <script>
   // 定义仓库信息
   const owner = 'XuYTong97';
@@ -180,29 +196,39 @@
     }
   }
 
-  let contents = []
-  const fileList = await fetchFileList(owner, repo, path, decryptedKey);
-  const requests = fileList.map(async (item) => {
-    const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}/${item.name}`;
-    const content = await fetchFileContent(url, decryptedKey);
-    const data = parseFileContent(content);
-    
-  });
-  await Promise.all(requests);
-  console.log('contents:', contents);
+  async function main() {
+    let contents = []
+    const fileList = await fetchFileList(owner, repo, path, decryptedKey);
+    const requests = fileList.map(async (item) => {
+      const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}/${item.name}`;
+      const content = await fetchFileContent(url, decryptedKey);
+      const data = parseFileContent(content);
+      contents.push(data)
+    });
+    await Promise.all(requests);
+    console.log('contents:', contents);
 
+    const contentContainer = document.getElementById('content-container');
+    // 清空之前的内容
+    contentContainer.innerHTML = '';
 
-  // 清空之前的内容
-  const editormdView = document.getElementById('test-editormd-view');
-  editormdView.innerHTML = '<textarea style="display:none;" name="test-editormd-markdown-doc"></textarea>';
-  // 假设 editormd 已经在页面中正确引入
-  testEditormdView = editormd.markdownToHTML("test-editormd-view", {
-    markdown: decodedContent,
-    tocm: true,
-    emoji: true,
-    taskList: true,
-    tex: true
-  });
+    contents.forEach((content, index) => {
+      const div = document.createElement('div');
+      div.id = `test-editormd-view-${index}`;
+      div.innerHTML = `<textarea style="display:none;" name="test-editormd-markdown-doc"></textarea>`;
+      contentContainer.appendChild(div);
+
+      // 假设 editormd 已经在页面中正确引入
+      editormd.markdownToHTML(`test-editormd-view-${index}`, {
+        markdown: content,
+        tocm: true,
+        emoji: true,
+        taskList: true,
+        tex: true
+      });
+    });
+  }
+  main()
 </script>
 
-</html>
+</html>    
