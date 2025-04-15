@@ -295,7 +295,8 @@ body {
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
-  margin-top: 200px;
+  /* margin-top: 200px; */
+  bottom: 0;
 }
 .footer .footer_left {
   padding-top: 1.3310185185rem;
