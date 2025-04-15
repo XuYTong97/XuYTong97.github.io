@@ -179,7 +179,7 @@
     }
 
     // 解析文件内容
-    function parseFileContent(content) {
+    function parseFileContent(content,item) {
       const base64Content = content.content;
       const binaryString = atob(base64Content);
       const len = binaryString.length;
@@ -191,7 +191,8 @@
       const decodedContent = decoder.decode(bytes);
       const lines = decodedContent.trim().split('\n');
       const data = {};
-
+      console.log(item)
+      data.id = item.split(".")[0]
       // 寻找第一张后缀为 jpg 或 png 的 Markdown 格式图片名称
       const imgMatch = decodedContent.match(/!\[.*?\]\((.*?\.(jpg|png))\)/i);
       if (imgMatch) {
@@ -227,7 +228,7 @@
       const requests = curTitles.map(async (item) => {
         const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}/${item}`;
         const content = await fetchFileContent(url, decryptedKey);
-        const data = parseFileContent(content);
+        const data = parseFileContent(content,item);
         contents.push(data)
       });
       await Promise.all(requests);
