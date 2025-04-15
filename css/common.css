@@ -269,6 +269,10 @@ body {
   margin-right: 0;
 }
 
+.markdown-body img{
+ margin: 0 auto;
+}
+
 .footer {
   height: 16.3773148148rem;
   background-color: #ebeff1 !important;
