@@ -364,9 +364,12 @@ body {
   justify-content: space-between;
 }
 .team .team_ph ul li {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  width: 17.4189814815rem;
+  margin-right: 3%;
+  width: 30%;
+  box-sizing: border-box;
 }
 .team .team_ph ul li .avg {
   width: 8.5069444444rem;
@@ -412,12 +415,16 @@ body {
 }
 .team .team_student .team_student_first {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
+  flex-wrap: wrap;
 }
 .team .team_student .team_student_first li {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
-  width: 17.4189814815rem;
+  margin-right: 3%;
+  width: 30%;
+  box-sizing: border-box;
 }
 .team .team_student .team_student_first li .avg {
   width: 8.5069444444rem;
