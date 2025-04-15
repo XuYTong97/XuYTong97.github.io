@@ -272,7 +272,22 @@ body {
 .markdown-body img{
  margin: 0 auto;
 }
-
+.pagebottonBox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pagebotton{
+  border: 0;
+  margin-right: 50px;
+  color: blue;
+}
+.pagebotton[click]{
+  border: 0;
+}
+.pagebotton[disabled]{
+  display: none;
+}
 .footer {
   height: 16.3773148148rem;
   background-color: #ebeff1 !important;
