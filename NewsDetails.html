@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: ZhaoShengwei
  * @Date: 2025-04-14 12:22:40
- * @LastEditTime: 2025-04-14 17:48:53
+ * @LastEditTime: 2025-04-15 09:11:30
  * @LastEditors: ZhaoShengwei
  * @Reference: 
 -->
@@ -45,11 +45,28 @@
             width: 100%;
             display: flex;
             box-sizing: border-box;
+            position: relative;
         }
 
         .editormd-html-preview,
         .editormd-preview-container {
             padding: 0;
+        }
+
+        .news-navigation {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .news-navigation a {
+            margin-left: 10px;
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        .news-navigation a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -82,14 +99,16 @@
                 <li><a href="Beauty.html">Gallery</a></li>
             </ul>
         </div>
-        <!--    </div>-->
         <div class="intro" style="margin-top:20px;">
             <div class="intro_left">
                 <div id="test-editormd-view">
                     <textarea style="display:none;" name="test-editormd-markdown-doc"></textarea>
                 </div>
+                <div class="news-navigation">
+                    <a id="prev-news" style="display: none;">&lt; 上一条</a>
+                    <a id="next-news" style="display: none;">下一条 &gt;</a>
+                </div>
             </div>
-
         </div>
         <footer class="footer">
             <div class="footer_left">
@@ -113,7 +132,7 @@
                     Intelligent Small-<br />Scale Robotics Lab,<br />Southeast University
                 </p>
             </div>
-        </footer>
+        </div>
         <div class="mdui-drawer mdui-drawer-right mdui-drawer-close" id="left-drawer">
             <div class="draw_header">
                 <div class="logo">
@@ -139,140 +158,172 @@
                 <li><a href="Beauty.html">Gallery</a></li>
             </ul>
         </div>
-</body>
-<script src="js/jquery.min.js"></script>
-<script src="js/mudi.js"></script>
-<script src="js/swiper-bundle.js"></script>
-<script src="js/index.js"></script>
-<script src="./editormd/editormd.js"></script>
-<script src="./editormd/lib/marked.min.js"></script>
-<script src="./editormd/lib/prettify.min.js"></script>
-<script type="text/javascript">
-    // 定义仓库信息
-    const owner = 'XuYTong97';
-    const repo = 'XuYTong97.github.io';
-    const path = 'NewsFiles';
-    // 存储 a 标签的 title 属性值
-    let titles = [];
-    let newsId;
-     // 加密使用的密钥（AES 要求密钥长度为 16、24 或 32 字节）
-    const encryptionKey = "1234567890123456";
-    // 加密密钥
-    const encryptedKey = "U2FsdGVkX19n7LHjbF+A4OTju6qpdurUCeF7Zn/Ocdkq5N0bEkL0LDf/lDdT1iQq+64NofY1t/igOtD6OQSqD8lmnhdYW9nQaoPENaGeBsxhe+bcsKjfUXuwz6K9WtdxN1qnYLBXOF9gazL+IGtJ/2LegrU8hN85RRCV3ST4mdE="
-    console.log("加密后的密钥: ", encryptedKey);
+    <script src="js/jquery.min.js"></script>
+    <script src="js/mudi.js"></script>
+    <script src="js/swiper-bundle.js"></script>
+    <script src="js/index.js"></script>
+    <script src="./editormd/editormd.js"></script>
+    <script src="./editormd/lib/marked.min.js"></script>
+    <script src="./editormd/lib/prettify.min.js"></script>
+    <script type="text/javascript">
+        // 定义仓库信息
+        const owner = 'XuYTong97';
+        const repo = 'XuYTong97.github.io';
+        const path = 'NewsFiles';
+        // 存储 a 标签的 title 属性值
+        let titles = [];
+        let newsId;
+        let currentIndex = 0;
+        // 加密使用的密钥（AES 要求密钥长度为 16、24 或 32 字节）
+        const encryptionKey = "1234567890123456";
+        // 加密密钥
+        const encryptedKey = "U2FsdGVkX19n7LHjbF+A4OTju6qpdurUCeF7Zn/Ocdkq5N0bEkL0LDf/lDdT1iQq+64NofY1t/igOtD6OQSqD8lmnhdYW9nQaoPENaGeBsxhe+bcsKjfUXuwz6K9WtdxN1qnYLBXOF9gazL+IGtJ/2LegrU8hN85RRCV3ST4mdE="
+        console.log("加密后的密钥: ", encryptedKey);
 
-     // 解密函数
-     function decrypt(key, ciphertext) {
-        const bytes = CryptoJS.AES.decrypt(ciphertext, key);
-        const originalText = bytes.toString(CryptoJS.enc.Utf8);
-        return originalText;
-      }
-
-      
-    // 解密密钥
-    const decryptedKey = decrypt(encryptionKey, encryptedKey);
-    console.log("解密后的密钥: ", decryptedKey);
-  
-    // 发起 GitHub API 请求获取文件列表
-    $.ajax({
-        url: `https://api.github.com/repos/${owner}/${repo}/contents/${path}`,
-        type: 'GET',
-        headers: {
-            // 如果你有 GitHub token，可以在这里添加以避免请求限制
-            'Authorization': decryptedKey
-        },
-        success: function (response) {
-            // 处理成功响应
-            console.log(response);
-            // 存储文件名
-            response.forEach(item => {
-                titles.push(item.name);
-                console.log(item.url)
-            });
-
-            console.log('文件名数组:', titles);
-            // 过滤出以.md为后缀的文件名
-            const mdFileNames = titles.filter(fileName => fileName.endsWith('.md'));
-
-            // 对过滤后的数组进行排序
-            const sortedMdFileNames = mdFileNames.sort();
-
-            console.log(sortedMdFileNames);
-
-            // 获取当前URL的查询参数部分
-            const urlParams = new URLSearchParams(window.location.search);
-            // 获取参数id的值
-            const idValue = urlParams.get('id');
-            if (idValue) {
-                console.log('参数id的值为:', idValue);
-                newsId = idValue;
-            } else {
-                console.log('URL中未找到参数id');
-                newsId = sortedMdFileNames[0].split(".")[0];
-            }
-            console.log(newsId);
-
-
-            const xhr = new XMLHttpRequest();
-            const url = `https://api.github.com/repos/XuYTong97/XuYTong97.github.io/contents/NewsFiles/${newsId}.md`;
-            xhr.open('GET', url, true);
-            xhr.send();
-
-            xhr.onreadystatechange = function () {
-                if (this.readyState === 4 && this.status === 200) {
-                    const response = JSON.parse(this.responseText);
-                    const base64Content = response.content;
-                    // 将Base64字符串解码为Uint8Array
-                    const binaryString = atob(base64Content);
-                    const len = binaryString.length;
-                    const bytes = new Uint8Array(len);
-                    for (let i = 0; i < len; i++) {
-                        bytes[i] = binaryString.charCodeAt(i);
-                    }
-                    // 使用TextDecoder将Uint8Array转换为正确编码的字符串
-                    const decoder = new TextDecoder('utf-8');
-                    const decodedContent = decoder.decode(bytes);
-                    console.log('解码后的内容:', decodedContent);
-                    // 假设 editormd 已经在页面中正确引入
-                    testEditormdView = editormd.markdownToHTML("test-editormd-view", {
-                        markdown: decodedContent,
-                        tocm: true,
-                        emoji: true,
-                        taskList: true,
-                        tex: true
-                    });
-                    const editormdView = document.getElementById('test-editormd-view');
-
-                    const firstH1 = editormdView.querySelector('h1');
-                    if (firstH1) {
-                        firstH1.style.textAlign = 'center';
-                    }
-
-                    const firstH3 = editormdView.querySelector('h3');
-                    if (firstH3) {
-                        firstH3.style.textAlign = 'center';
-                    }
-
-                    const paragraphs = editormdView.querySelectorAll('p');
-                    paragraphs.forEach((paragraph) => {
-                        if (paragraph !== firstH1 && paragraph !== firstH3) {
-                            paragraph.style.textAlign = 'justify';
-                            paragraph.style.textIndent = '2ch';
-                        }
-                    });
-                }
-            };
-        },
-        error: function (error) {
-            // 处理错误
-            console.log('获取文件列表时出错:', error);
+        // 解密函数
+        function decrypt(key, ciphertext) {
+            const bytes = CryptoJS.AES.decrypt(ciphertext, key);
+            const originalText = bytes.toString(CryptoJS.enc.Utf8);
+            return originalText;
         }
-    });
 
+        // 解密密钥
+        const decryptedKey = decrypt(encryptionKey, encryptedKey);
+        console.log("解密后的密钥: ", decryptedKey);
 
+        // 发起 GitHub API 请求获取文件列表
+        $.ajax({
+            url: `https://api.github.com/repos/${owner}/${repo}/contents/${path}`,
+            type: 'GET',
+            headers: {
+                // 如果你有 GitHub token，可以在这里添加以避免请求限制
+                'Authorization': decryptedKey
+            },
+            success: function (response) {
+                // 处理成功响应
+                console.log(response);
+                // 存储文件名
+                response.forEach(item => {
+                    titles.push(item.name);
+                    console.log(item.url)
+                });
 
-</script>
+                console.log('文件名数组:', titles);
+                // 过滤出以.md为后缀的文件名
+                const mdFileNames = titles.filter(fileName => fileName.endsWith('.md'));
+
+                // 对过滤后的数组进行排序
+                const sortedMdFileNames = mdFileNames.sort();
+
+                console.log(sortedMdFileNames);
+
+                // 获取当前URL的查询参数部分
+                const urlParams = new URLSearchParams(window.location.search);
+                // 获取参数id的值
+                const idValue = urlParams.get('id');
+                if (idValue) {
+                    console.log('参数id的值为:', idValue);
+                    newsId = idValue;
+                    currentIndex = sortedMdFileNames.findIndex(file => file.startsWith(newsId));
+                } else {
+                    console.log('URL中未找到参数id');
+                    newsId = sortedMdFileNames[0].split(".")[0];
+                    currentIndex = 0;
+                }
+                console.log(newsId);
+
+                function loadNews(index) {
+                    const newsId = sortedMdFileNames[index].split(".")[0];
+                    const xhr = new XMLHttpRequest();
+                    const url = `https://api.github.com/repos/XuYTong97/XuYTong97.github.io/contents/NewsFiles/${newsId}.md`;
+                    xhr.open('GET', url, true);
+                    xhr.send();
+
+                    xhr.onreadystatechange = function () {
+                        if (this.readyState === 4 && this.status === 200) {
+                            const response = JSON.parse(this.responseText);
+                            const base64Content = response.content;
+                            // 将Base64字符串解码为Uint8Array
+                            const binaryString = atob(base64Content);
+                            const len = binaryString.length;
+                            const bytes = new Uint8Array(len);
+                            for (let i = 0; i < len; i++) {
+                                bytes[i] = binaryString.charCodeAt(i);
+                            }
+                            // 使用TextDecoder将Uint8Array转换为正确编码的字符串
+                            const decoder = new TextDecoder('utf-8');
+                            const decodedContent = decoder.decode(bytes);
+                            console.log('解码后的内容:', decodedContent);
+                            // 清空之前的内容
+                            const editormdView = document.getElementById('test-editormd-view');
+                            editormdView.innerHTML = '<textarea style="display:none;" name="test-editormd-markdown-doc"></textarea>';
+                            // 假设 editormd 已经在页面中正确引入
+                            testEditormdView = editormd.markdownToHTML("test-editormd-view", {
+                                markdown: decodedContent,
+                                tocm: true,
+                                emoji: true,
+                                taskList: true,
+                                tex: true
+                            });
+
+                            const firstH1 = editormdView.querySelector('h1');
+                            if (firstH1) {
+                                firstH1.style.textAlign = 'center';
+                            }
+
+                            const firstH3 = editormdView.querySelector('h3');
+                            if (firstH3) {
+                                firstH3.style.textAlign = 'center';
+                            }
+
+                            const paragraphs = editormdView.querySelectorAll('p');
+                            paragraphs.forEach((paragraph) => {
+                                if (paragraph !== firstH1 && paragraph !== firstH3) {
+                                    paragraph.style.textAlign = 'justify';
+                                    paragraph.style.textIndent = '2ch';
+                                }
+                            });
+                        }
+                    };
+                }
+
+                loadNews(currentIndex);
+
+                const prevLink = document.getElementById('prev-news');
+                const nextLink = document.getElementById('next-news');
+
+                function updateLinkVisibility() {
+                    prevLink.style.display = currentIndex === 0 ? 'none' : 'inline';
+                    nextLink.style.display = currentIndex === sortedMdFileNames.length - 1 ? 'none' : 'inline';
+                }
+
+                updateLinkVisibility();
+
+                prevLink.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        loadNews(currentIndex);
+                        updateLinkVisibility();
+                    }
+                });
+
+                nextLink.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    if (currentIndex < sortedMdFileNames.length - 1) {
+                        currentIndex++;
+                        loadNews(currentIndex);
+                        updateLinkVisibility();
+                    }
+                });
+            },
+            error: function (error) {
+                // 处理错误
+                console.log('获取文件列表时出错:', error);
+            }
+        });
+    </script>
 
 </body>
 
-</html>
+</html>    
