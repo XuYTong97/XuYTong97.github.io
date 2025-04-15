@@ -1,3 +1,11 @@
+<!--
+ * @Description: 
+ * @Author: ZhaoShengwei
+ * @Date: 2025-04-15 08:12:08
+ * @LastEditTime: 2025-04-15 13:20:02
+ * @LastEditors: ZhaoShengwei
+ * @Reference: 
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +15,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Wanglab</title>
   <link href="./fonts/Inner/index.css" rel="stylesheet" />
+  <script src="./js/crypto-js.min.js"></script>
+  <script src="./editormd/editormd.min.js"></script>
+  <script src="./js/lib-jquery.min.js" rel="external nofollow"></script>
   <link rel="icon" href="img/SEU-Emblem.png" />
   <link rel="stylesheet" href="css/mudi.css" />
   <link rel="stylesheet" href="css/index.css" />
@@ -58,32 +69,9 @@
   </div>
   <!--    </div>-->
   <div class="intro">
-    <div class="intro_left">
-      <div class="title"><a href="Research.html">About us</a></div>
-      <div class="text-default">
-        <p>
-          The <span>Intelligent Small-Scale Robotics Lab </span>(ISSR Lab) is
-          affiliated with School of Mechanical Engineering, Southeast
-          University (SEU), Nanjing, China. Founded by Dr. Qianqian Wang, the
-          lab is dedicated to the interdisciplinary robotics research at small
-          scales, ranging from fundamental science and physics to technologies
-          and solutions for a series of applications. The primary research
-          theme of ISSR Lab centered upon the development of intelligent
-          small-scale robotic systems, including actuation and control
-          strategies, autonomous systems, medical imaging-guided delivery
-          systems, and in <i>vitro/ex vivo/in vivo</i> trials. Our team aims
-          to investigate novel robotics solutions with a highly interest in
-          both academic research and down-to-earth solution development, and
-          we are always welcome worldwide collaborators to join our
-          collaboration network.
-        </p>
-        <p>
-          <span>Research Keywords: </span>Small-scale robotics,
-          micro/nanorobotics, magnetic control, micro/nanomanipulation,
-          microrobotic swarm, collective behaviors, active targeted delivery,
-          autonomous system, medical imaging.
-        </p>
-      </div>
+    <div class="intro_left" id="intro_left">
+      
+      
     </div>
     <div class="intro_right">
       <div class="title"><a href="News.html">News</a></div>
@@ -198,7 +186,7 @@
   }
 
   // 解析文件内容
-  function parseFileContent(content, item) {
+  function parseFileContent(content) {
     const base64Content = content.content;
     const binaryString = atob(base64Content);
     const len = binaryString.length;
@@ -208,8 +196,23 @@
     }
     const decoder = new TextDecoder('utf-8');
     const decodedContent = decoder.decode(bytes);
-    return decodedContent;
+    const lines = decodedContent.trim().split('\n');
+    return lines;
   }
+
+    // 解析文件内容
+    function parseFileContentUS(content) {
+      const base64Content = content.content;
+      const binaryString = atob(base64Content);
+      const len = binaryString.length;
+      const bytes = new Uint8Array(len);
+      for (let i = 0; i < len; i++) {
+        bytes[i] = binaryString.charCodeAt(i);
+      }
+      const decoder = new TextDecoder('utf-8');
+      const decodedContent = decoder.decode(bytes);
+      return decodedContent;
+    }
 
 
   async function main() {
@@ -218,12 +221,10 @@
       const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}/imglist.txt`;
       const content = await fetchFileContent(url, decryptedKey);
       const data = parseFileContent(content);
-
-    await Promise.all(requests);
-    console.log('contents:', contents);
+    console.log('contents:', data);
 
     // 定义轮播图路径数组
-    const slidePaths = slidePaths
+    const slidePaths = data
 
     // 获取轮播图容器元素
     const swiperWrapper = document.querySelector('.swiper-wrapper');
@@ -253,6 +254,32 @@
         el: '.swiper-pagination',
       },
     });
+
+
+    const urlUS = `https://api.github.com/repos/${owner}/${repo}/contents/${path}/AboutUS.md`;
+    const contentUS = await fetchFileContent(urlUS, decryptedKey);
+    const dataUS = parseFileContentUS(contentUS);
+    console.log('contents:', dataUS);
+
+    const contentContainer = document.getElementById('intro_left');
+    // 清空之前的内容
+    contentContainer.innerHTML = '';
+    const div = document.createElement('div');
+    div.id = `test-editormd-view-${index}`;
+    div.innerHTML = `<div class="title"><a href="Research.html">About us</a></div><textarea style="display:none;" name="test-editormd-markdown-doc"></textarea>`;
+    contentContainer.appendChild(div);
+    // 假设 editormd 已经在页面中正确引入
+    editormd.markdownToHTML(`test-editormd-view-${index}`, {
+      markdown: content,
+      tocm: true,
+      emoji: true,
+      taskList: true,
+      tex: true
+    });
+    
+
+    
+
 
   }
   main()
