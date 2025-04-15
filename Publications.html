@@ -1,3 +1,11 @@
+<!--
+ * @Description: 
+ * @Author: ZhaoShengwei
+ * @Date: 2025-04-15 08:12:06
+ * @LastEditTime: 2025-04-15 12:48:38
+ * @LastEditors: ZhaoShengwei
+ * @Reference: 
+-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -51,7 +59,7 @@
           <li><a href="Beauty.html">Gallery</a></li>
         </ul>
       </div>
-      <div class="publications_center">
+      <div class="publications_center" id="publications_center">
 
       </div>
       
@@ -208,7 +216,7 @@
     await Promise.all(requests);
     console.log('contents:', contents);
 
-    const contentContainer = document.getElementById('content-container');
+    const contentContainer = document.getElementById('publications_center');
     // 清空之前的内容
     contentContainer.innerHTML = '';
 
