@@ -51,7 +51,21 @@
       </ul>
     </div>
     <div class="news_center">
-      <ul id="newsList"></ul>
+      <ul id="newsList">
+        <li>
+          <div class="cover">
+            <img src="./img/0320.jpg" alt="" />
+          </div>
+          <div class="info">
+            <h3>March - 2025</h3>
+            <p>
+              Our recent work published in Science Robotics has been elected as Hong Kong’s Top Ten Innovation and
+              Technology News in 2024!
+              <a target="_blank" href="https://www.bhkaec.org.hk/a/141780-cht">[Link]</a>
+            </p>
+          </div>
+        </li>
+      </ul>
       <button id="prevPage" disabled>上一页</button>
       <button id="nextPage">下一页</button>
     </div>
@@ -179,7 +193,7 @@
     }
 
     // 解析文件内容
-    function parseFileContent(content,item) {
+    function parseFileContent(content, item) {
       const base64Content = content.content;
       const binaryString = atob(base64Content);
       const len = binaryString.length;
@@ -191,8 +205,26 @@
       const decodedContent = decoder.decode(bytes);
       const lines = decodedContent.trim().split('\n');
       const data = {};
-      console.log(item)
-      data.id = item.split(".")[0]
+      console.log(item);
+      data.id = item.split(".")[0];
+
+      // 提取第二行的时间并格式化
+      if (lines.length > 1) {
+        const secondLine = String(lines[1].split(" ")[1]).trim();
+        console.log(secondLine);
+        // 更通用的日期匹配正则表达式
+        const dateMatch = secondLine.match(/(\d{4})[年.\-](\d{1,2})[月.\-](\d{1,2})[日]?/);
+        if (dateMatch) {
+          const year = dateMatch[1];
+          let month = dateMatch[2];
+          let day = dateMatch[3];
+          // 确保月份和日期为两位数
+          month = month.padStart(2, '0');
+          day = day.padStart(2, '0');
+          data.time = `${year}-${month}-${day}`;
+        }
+      }
+
       // 寻找第一张后缀为 jpg 或 png 的 Markdown 格式图片名称
       const imgMatch = decodedContent.match(/!\[.*?\]\((.*?\.(jpg|png))\)/i);
       if (imgMatch) {
@@ -219,21 +251,39 @@
       curTitles = []
       for (let i = startIndex; i < endIndex && i < newsTitlesDataList.length; i++) {
         const li = document.createElement('li');
-        li.textContent = newsTitlesDataList[i];
+        li.innerHTML = newsTitlesDataList[i];
         curTitles.push(newsTitlesDataList[i])
-        newsList.appendChild(li);
       }
 
       contents = []
       const requests = curTitles.map(async (item) => {
         const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}/${item}`;
         const content = await fetchFileContent(url, decryptedKey);
-        const data = parseFileContent(content,item);
+        const data = parseFileContent(content, item);
         contents.push(data)
       });
       await Promise.all(requests);
       console.log('contents:', contents);
-
+      let listr = ""
+      contents.forEach(item => {
+        listr = listr + `<li>
+          <div class="cover">
+            <img src="${item.img}" alt="" />
+          </div>
+          <div class="info">
+            <h3>${item.time}</h3>
+            <p>
+              ${item.intr}
+              <a
+                target="_blank"
+                href="./NewsDetails.html?id=${item.id}"
+                >[Link]</a
+              >
+            </p>
+          </div>
+        </li>`
+      })
+      newsList.innerHTML = listr;
 
       const prevPageButton = document.getElementById('prevPage');
       const nextPageButton = document.getElementById('nextPage');
