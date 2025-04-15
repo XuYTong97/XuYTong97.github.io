@@ -159,24 +159,25 @@
       }
     });
 
-      // 发起请求获取单个文件内容
-  async function fetchFileContent(url, decryptedKey) {
-    try {
-      const response = await fetch(url, {
-        method: 'GET',
-        headers: {
-          'Authorization': decryptedKey
+    // 发起请求获取单个文件内容
+    async function fetchFileContent(url, decryptedKey) {
+      try {
+        const response = await fetch(url, {
+          method: 'GET',
+          headers: {
+            'Authorization': decryptedKey
+          }
+        });
+        if (!response.ok) {
+          throw new Error(`请求文件内容时出错，状态码: ${response.status}`);
         }
-      });
-      if (!response.ok) {
-        throw new Error(`请求文件内容时出错，状态码: ${response.status}`);
+        return await response.json();
+      } catch (error) {
+        console.log('请求文件内容时出错:', error);
+        throw error;
       }
-      return await response.json();
-    } catch (error) {
-      console.log('请求文件内容时出错:', error);
-      throw error;
     }
-  }
+
     // 解析文件内容
     function parseFileContent(content) {
       const base64Content = content.content;
@@ -190,15 +191,26 @@
       const decodedContent = decoder.decode(bytes);
       const lines = decodedContent.trim().split('\n');
       const data = {};
-      lines.forEach((index,line) => {
-        console.log(line)
-        console.log(index)
-        data[index] = line;
-      });
+
+      // 寻找第一张后缀为 jpg 或 png 的 Markdown 格式图片名称
+      const imgMatch = decodedContent.match(/!\[.*?\]\((.*?\.(jpg|png))\)/i);
+      if (imgMatch) {
+        data.img = imgMatch[1];
+      }
+
+      // 寻找第一个字符数量超过 50 的段落
+      for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (line.length > 50) {
+          data.intr = line;
+          break;
+        }
+      }
+
       return data;
     }
-    
-  async function displayPage(page) {
+
+    async function displayPage(page) {
       const startIndex = page * itemsPerPage;
       const endIndex = startIndex + itemsPerPage;
       const newsList = document.getElementById('newsList');
@@ -212,7 +224,7 @@
       }
 
       contents = []
-      const  requests = curTitles.map(async (item) => {
+      const requests = curTitles.map(async (item) => {
         const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}/${item}`;
         const content = await fetchFileContent(url, decryptedKey);
         const data = parseFileContent(content);
@@ -247,4 +259,3 @@
 </body>
 
 </html>
-    
